@@ -11,6 +11,7 @@ set(GCD_FINDER_PATH gcdFinder)
 set(GCD_NUMBER_PATH gcdNumber)
 set(GCD_PAIR_PATH gcdPair)
 set(INDEX_PAIR_PATH indexPair)
+set(STRING_TO_NUMBER_CONVERTER_PATH stringToNumberConverter)
 set(TESTS_PATH testing/tests)
 set(TEST_RUNNER_PATH testing/testRunner)
 set(UTILS_PATH utils)
@@ -21,6 +22,7 @@ file(GLOB_RECURSE SOURCE_FILES_CPP
         "${GCD_NUMBER_PATH}/*.cpp"
         "${GCD_PAIR_PATH}/*.cpp"
         "${INDEX_PAIR_PATH}/*.cpp"
+        "${STRING_TO_NUMBER_CONVERTER_PATH}/*.cpp"
         "${TESTS_PATH}/*.cpp"
         "${TEST_RUNNER_PATH}/*.cpp"
         "${UTILS_PATH}/*.cpp"
@@ -31,6 +33,7 @@ file(GLOB_RECURSE SOURCE_FILES_HEADERS
         "${GCD_NUMBER_PATH}/*.h"
         "${GCD_PAIR_PATH}/*.h"
         "${INDEX_PAIR_PATH}/*.h"
+        "${STRING_TO_NUMBER_CONVERTER_PATH}/*.h"
         "${TEST_RUNNER_PATH}/*.h"
         "${UTILS_PATH}/*.h"
 )
@@ -39,6 +42,7 @@ set(SOURCE_FILES
         ${SOURCE_FILES_CPP}
         ${SOURCE_FILES_HEADERS}
 )
+
 add_executable(GCD ${SOURCE_FILES})
 
 target_link_libraries(GCD gtest gtest_main)
