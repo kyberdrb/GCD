@@ -9,7 +9,7 @@ include_directories(${GOOGLE_TEST_DIR}/googletest/include)
 
 set(GCD_FINDER_PATH gcdFinder)
 set(GCD_NUMBER_PATH gcdNumber)
-set(GCD_PAIR_PATH gcdPair)
+set(NUMBER_PAIR_PATH numberPair)
 set(INDEX_PAIR_PATH indexPair)
 set(STRING_TO_NUMBER_CONVERTER_PATH stringToNumberConverter)
 set(TESTS_PATH testing/tests)
@@ -20,7 +20,7 @@ file(GLOB_RECURSE SOURCE_FILES_CPP
         "gcd.cpp"
         "${GCD_FINDER_PATH}/*.cpp"
         "${GCD_NUMBER_PATH}/*.cpp"
-        "${GCD_PAIR_PATH}/*.cpp"
+        "${NUMBER_PAIR_PATH}/*.cpp"
         "${INDEX_PAIR_PATH}/*.cpp"
         "${STRING_TO_NUMBER_CONVERTER_PATH}/*.cpp"
         "${TESTS_PATH}/*.cpp"
@@ -31,7 +31,7 @@ file(GLOB_RECURSE SOURCE_FILES_CPP
 file(GLOB_RECURSE SOURCE_FILES_HEADERS
         "${GCD_FINDER_PATH}/*.h"
         "${GCD_NUMBER_PATH}/*.h"
-        "${GCD_PAIR_PATH}/*.h"
+        "${NUMBER_PAIR_PATH}/*.h"
         "${INDEX_PAIR_PATH}/*.h"
         "${STRING_TO_NUMBER_CONVERTER_PATH}/*.h"
         "${TEST_RUNNER_PATH}/*.h"

@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cstring>
 #include "indexPair/IndexPair.h"
-#include "gcdPair/GcdPair.h"
+#include "numberPair/NumberPair.h"
 #include "gcdFinder/GcdFinder.h"
 #include "gcdNumber/GcdNumber.h"
 #include "utils/Utils.h"
