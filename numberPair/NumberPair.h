@@ -11,7 +11,7 @@ typedef struct numberPair {
 } NumberPair;
 
 
-NumberPair * createGcdPairs(int *numbers, int const & numberOfElements, Index_Pair *index_pairs);
+NumberPair * createNumberPairs(int *numbers, int const &numberOfElements, Index_Pair *index_pairs);
 
 
 #endif //GCD_NUMBERPAIR_H

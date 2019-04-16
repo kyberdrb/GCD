@@ -6,8 +6,9 @@
 
 class GcdFinder {
 public:
-    int find_gcd(const NumberPair &pair);
-    int find_max_gcd(int* numbers, int numberOfElements);
+    static int find_gcd(const NumberPair &pair);
+
+    static int find_max_gcd(int* numbers, int numberOfElements);
 };
 
 

@@ -8,7 +8,7 @@ typedef struct gcd_number {
     int value;
 } GCD_Number;
 
-GCD_Number * createGcdNumbers(const int numberOfElements, const NumberPair *gcd_pairs);
+GCD_Number * createGcdNumbers(const int numberOfElements, const NumberPair *numberPairs);
 
 
 #endif //GCD_GCDNUMBER_H
