@@ -41,7 +41,7 @@ file(GLOB_RECURSE SOURCE_FILES_HEADERS
 set(SOURCE_FILES
         ${SOURCE_FILES_CPP}
         ${SOURCE_FILES_HEADERS}
-)
+        convertedNumbers/ConvertedNumbers.cpp convertedNumbers/ConvertedNumbers.h)
 
 add_executable(GCD ${SOURCE_FILES})
 

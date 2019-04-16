@@ -17,11 +17,11 @@ int main(int argc, char **argv) {
         return testRunner->getTestStatus();
     }
 
-    const int numberOfNumbers = argc;
-    int* numbers = StringToNumberConverter::fillWithConvertedNumbers(argv, numberOfNumbers);
+    int numberOfArgs = argc;
+    int* numbers = StringToNumberConverter::createConvertedNumbers(argv, numberOfArgs);
 
     std::unique_ptr<GcdFinder> gcdFinder(new GcdFinder());
-    int maxGcd = gcdFinder->find_max_gcd(numbers, numberOfNumbers);
+    int maxGcd = gcdFinder->find_max_gcd(numbers, numberOfArgs);
 
     free(numbers);
 
