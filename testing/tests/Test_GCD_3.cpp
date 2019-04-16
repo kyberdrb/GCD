@@ -26,4 +26,16 @@ namespace {
     TEST_F(Test_GCD_3, gcd_3) {
         ASSERT_EQ(3, gcdFinder->find_max_gcd(numbers, numberOfNumbers));
     }
+
+// TODO add more test-case-classes
+//  0
+//  0, 0
+//  -1, -1
+//  -2, -4
+//  -20, -5
+//  -150, -50, -160
+//  -30, 6
+//  45, -9
+//  11, a
+//  a, b
 }

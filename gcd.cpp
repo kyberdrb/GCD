@@ -6,6 +6,7 @@
 #include "gcdNumber/GcdNumber.h"
 #include "utils/Utils.h"
 #include "testing/testRunner/TestRunner.h"
+#include "stringToNumberConverter/StringToNumberConverter.h"
 #include <memory>
 #include <gtest/gtest.h>
 
@@ -16,17 +17,11 @@ int main(int argc, char **argv) {
         return testRunner->getTestStatus();
     }
 
-    // TODO load numbers as arguments from terminal
-    const int numberOfElements = 4;
-    // TODO check every calloc/malloc/realloc function for null pointer
-    int* numbers = (int*) calloc(numberOfElements, sizeof(int));
-    numbers[0] = 10;
-    numbers[1] = 20;
-    numbers[2] = 30;
-    numbers[3] = 40;
+    int numberOfArgs = argc;
+    int* numbers = StringToNumberConverter::createConvertedNumbers(argv, numberOfArgs);
 
     std::unique_ptr<GcdFinder> gcdFinder(new GcdFinder());
-    int maxGcd = gcdFinder->find_max_gcd(numbers, numberOfElements);
+    int maxGcd = gcdFinder->find_max_gcd(numbers, numberOfArgs);
 
     free(numbers);
 
