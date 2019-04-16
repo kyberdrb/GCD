@@ -2,11 +2,11 @@
 #define GCD_GCDFINDER_H
 
 
-#include "../gcdPair/GcdPair.h"
+#include "../numberPair/NumberPair.h"
 
 class GcdFinder {
 public:
-    int find_gcd(const GCD_Pair &pair);
+    int find_gcd(const NumberPair &pair);
     int find_max_gcd(int* numbers, int numberOfElements);
 };
 

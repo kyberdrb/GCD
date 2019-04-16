@@ -1,7 +1,2 @@
 /.idea/*
-
-# TODO after figuring out how to separate Google Tests from the application
-#  ignore workspace.xml as well
-!/.idea/workspace.xml
-
 cmake-build-debug/

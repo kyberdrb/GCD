@@ -9,7 +9,7 @@
 int GcdFinder::find_max_gcd(int *numbers, int numberOfElements) {
     Index_Pair *index_pairs = createUniquePairsOfIndexes(numberOfElements);
 
-    GCD_Pair *gcd_pairs = createGcdPairs(numbers, numberOfElements, index_pairs);
+    NumberPair *gcd_pairs = createGcdPairs(numbers, numberOfElements, index_pairs);
     free(index_pairs);
 
     GCD_Number *gcd_numbers = createGcdNumbers(numberOfElements, gcd_pairs);
@@ -27,7 +27,7 @@ int GcdFinder::find_max_gcd(int *numbers, int numberOfElements) {
     return maxGcd;
 }
 
-int GcdFinder::find_gcd(const GCD_Pair &pair) {
+int GcdFinder::find_gcd(const NumberPair &pair) {
     const int firstNumber = pair.firstNumber;
     const int secondNumber = pair.secondNumber;
 
