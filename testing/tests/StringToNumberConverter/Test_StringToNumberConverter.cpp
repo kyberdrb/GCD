@@ -2,6 +2,7 @@
 #include <gtest/gtest.h>
 #include "../../../stringToNumberConverter/StringToNumberConverter.h"
 
+// TODO merge these test cases with class "testing/tests/GcdFinder/Test_GcdFinder.cpp"
 namespace {
     class Test_StringToNumberConverter : public ::testing::Test {};
 

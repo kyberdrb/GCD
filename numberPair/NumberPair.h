@@ -4,7 +4,6 @@
 
 #include "../indexPair/IndexPair.h"
 
-// TODO rename from `GcdPair` and its files to `NumberPair`
 typedef struct numberPair {
     int firstNumber;
     int secondNumber;
