@@ -13,5 +13,6 @@ typedef struct numberPair {
 
 NumberPair * createNumberPairs(int *numbers, int const &numberOfElements, Index_Pair *index_pairs);
 
+int makeNumberPositive(const int negativeNumber);
 
 #endif //GCD_NUMBERPAIR_H
