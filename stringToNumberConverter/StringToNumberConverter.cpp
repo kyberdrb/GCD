@@ -39,13 +39,14 @@ bool StringToNumberConverter::isInputNumberBlank(const char *numberAsString, con
 }
 
 // TODO make method createConvertedNumbers return unique pointer to ConvertedNumbers
+//  in order to remove "free" statement in main
 // TODO make test cases for method createConvertedNumbers
 int* StringToNumberConverter::createConvertedNumbers(char *const *inputArgs, int &numberOfArgs) {
     int numberOfValidNumbers = precomputeNumberOfValidNumbers(inputArgs, numberOfArgs);
 
     // TODO check every calloc/malloc/realloc function for null pointer
     //  then throw an exception -> handle the exception in main
-    int* numbers = (int *) calloc(numberOfValidNumbers, sizeof(int));
+    int* numbers = (int *) calloc((size_t) numberOfValidNumbers, sizeof(int));
 
     for (int i = 1; i <= numberOfValidNumbers; i++) {
         const char* numberAsString = inputArgs[i];

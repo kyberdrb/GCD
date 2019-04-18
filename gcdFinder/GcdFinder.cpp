@@ -49,7 +49,7 @@ int GcdFinder::find_gcd(const NumberPair &pair) {
     }
 
     int remainder = 1;
-    int gcd = 1;
+    int gcd;
     while (remainder != 0) {
         remainder = greaterNum % lesserNum;
         greaterNum = lesserNum;

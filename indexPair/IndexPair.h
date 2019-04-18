@@ -7,7 +7,7 @@ typedef struct index_pair {
     int indexOfSecondNumber;
 } Index_Pair;
 
-Index_Pair * createUniquePairsOfIndexes(const int numberOfElements);
+Index_Pair * createUniquePairsOfIndexes(int numberOfElements);
 
 
 #endif //GCD_INDEXPAIR_H

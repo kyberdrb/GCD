@@ -8,7 +8,7 @@ private:
 
     static bool isStringNumberValid(const char *numberAsString, const char *endptr, long number);
 
-    static int precomputeNumberOfValidNumbers(char * const *inputArgs, const int numberOfArgs);
+    static int precomputeNumberOfValidNumbers(char * const *inputArgs, int numberOfArgs);
 
     static bool isNumberOutOfRange(long number);
 
