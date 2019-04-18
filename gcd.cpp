@@ -20,8 +20,7 @@ int main(int argc, char **argv) {
     int numberOfArgs = argc;
     int* numbers = StringToNumberConverter::createConvertedNumbers(argv, numberOfArgs);
 
-    std::unique_ptr<GcdFinder> gcdFinder(new GcdFinder());
-    int maxGcd = gcdFinder->find_max_gcd(numbers, numberOfArgs);
+    int maxGcd = GcdFinder::find_max_gcd(numbers, numberOfArgs);
 
     free(numbers);
 
