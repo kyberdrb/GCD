@@ -64,22 +64,4 @@ namespace {
         int numbers [] = {45, -9};
         EXPECT_EQ(9, GcdFinder::find_max_gcd(numbers, 2));
     }
-
-    // TODO move StringToNumberConverter fom main to GcdFinder as a private variable
-    //  - assumes changing method signature from "int* numbers"
-    //    to  "char* inputArgs"
-//    TEST_F(Test_GcdFinder, gcd_11_a) {
-//        int numbers [] = {11, "a"};
-//        EXPECT_EQ(11, GcdFinder::find_max_gcd(numbers, 2));
-//    }
-//
-//    TEST_F(Test_GcdFinder, gcd_b_neg_22) {
-//        int numbers [] = {"b", -22};
-//        EXPECT_EQ(22, GcdFinder::find_max_gcd(numbers, 2));
-//    }
-//
-//    TEST_F(Test_GcdFinder, gcd_c_d) {
-//        int numbers [] = {"c", "d"};
-//        EXPECT_THROW(GcdFinder::find_max_gcd(numbers, 2), std::invalid_argument);
-//    }
 }

@@ -4,6 +4,8 @@
 
 class StringToNumberConverter {
 private:
+    static long convert(const char* numberAsString);
+
     static void resetErrorNumber();
 
     static bool isStringNumberValid(const char *numberAsString, const char *endptr, long number);
@@ -17,8 +19,6 @@ private:
     static bool isInputNumberBlank(const char *numberAsString, const char *endptr);
 
 public:
-    static long convert(const char* numberAsString);
-
     static int* createConvertedNumbers(char *const *inputArgs, int &numberOfArgs);
 };
 

@@ -2,27 +2,33 @@
 #include <gtest/gtest.h>
 #include "../../../stringToNumberConverter/StringToNumberConverter.h"
 
-// TODO merge these test cases with class "testing/tests/GcdFinder/Test_GcdFinder.cpp"
 namespace {
-    class Test_StringToNumberConverter : public ::testing::Test {};
+    class Test_StringToNumberConverter : public ::testing::Test {
+    protected:
+        char *const args [4] = {"1", "-2", "asdf", "300.7"};
+        int numberOfArguments = 4;
+
+        int *convertedNumbers = nullptr;
+
+        void SetUp() override {
+            convertedNumbers = StringToNumberConverter::createConvertedNumbers(args, numberOfArguments);
+        }
+
+        void TearDown() override {
+            free(convertedNumbers);
+        };
+    };
 
     TEST_F( Test_StringToNumberConverter,
             convert_1) {
-        EXPECT_EQ(1, StringToNumberConverter::convert("1"));
+        int numberOfValidArguments = 3;
+        EXPECT_EQ(numberOfValidArguments, numberOfArguments);
     }
 
     TEST_F( Test_StringToNumberConverter,
-            convert_100) {
-        EXPECT_EQ(100, StringToNumberConverter::convert("100"));
-    }
-
-    TEST_F( Test_StringToNumberConverter,
-            convert_negative_30) {
-        EXPECT_EQ(-30, StringToNumberConverter::convert("-30"));
-    }
-
-    TEST_F( Test_StringToNumberConverter,
-            convert_garbled_ascii_string) {
-        EXPECT_THROW(StringToNumberConverter::convert("asdf"), std::invalid_argument);
+            compare_valid_numbers) {
+        EXPECT_EQ(1, convertedNumbers[0]);
+        EXPECT_EQ(-2, convertedNumbers[1]);
+        EXPECT_EQ(300, convertedNumbers[2]);
     }
 }

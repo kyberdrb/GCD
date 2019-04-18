@@ -10,6 +10,7 @@ GCD_Number * createGcdNumbers(const int numberOfElements, const NumberPair *numb
     int numberOfAllIterations = computeNumberOfAllIterations(numberOfElements);
     const int &numberOfAllGcdNumbers = numberOfAllIterations;
     auto * gcd_numbers = (GCD_Number *) calloc((size_t) numberOfAllGcdNumbers, sizeof(GCD_Number));
+
     for (int i = 0; i < numberOfAllIterations; ++i) {
         GCD_Number gcd_num;
         gcd_num.value = GcdFinder::find_gcd(numberPairs[i]);
