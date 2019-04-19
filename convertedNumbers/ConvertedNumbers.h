@@ -8,9 +8,13 @@ private:
     int size;
 
 public:
-    int* getConvertedNumbers();
+    ConvertedNumbers(int *convertedNumbers, int size);
 
-    int getSize();
+    int* getConvertedNumbers() const;
+
+    int getSize() const;
+
+    ~ConvertedNumbers();
 };
 
 

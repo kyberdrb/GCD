@@ -17,13 +17,8 @@ int main(int argc, char **argv) {
         return testRunner->getTestStatus();
     }
 
-    int numberOfArgs = argc;
-    int* numbers = StringToNumberConverter::createConvertedNumbers(argv, numberOfArgs);
-
-    int maxGcd = GcdFinder::find_max_gcd(numbers, numberOfArgs);
-
-    free(numbers);
-
+    std::unique_ptr<ConvertedNumbers> numbers = StringToNumberConverter::createConvertedNumbers(argv, argc);
+    int maxGcd = GcdFinder::find_max_gcd(numbers->getConvertedNumbers(), numbers->getSize());
     std::cout << maxGcd << std::endl;
 
     return 0;
