@@ -1,10 +1,11 @@
-#include <cstdlib>
+#include<cstdlib>
 #include <iosfwd>
 #include <string>
 #include <climits>
 #include <stdexcept>
 #include <iostream>
 #include "StringToNumberConverter.h"
+#include "../convertedNumbers/ConvertedNumbers.h"
 
 long StringToNumberConverter::convert(const char *numberAsString) {
     char *residualString = nullptr;
@@ -38,12 +39,11 @@ bool StringToNumberConverter::isInputNumberBlank(const char *numberAsString, con
     return numberAsString == residualString;
 }
 
-// TODO make method createConvertedNumbers return unique pointer to ConvertedNumbers
-//  in order to remove "free" statement in main
-int* StringToNumberConverter::createConvertedNumbers(char *const *inputArgs, int &numberOfArgs) {
+std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumbers(char *const *inputArgs, int numberOfArgs) {
     int numberOfValidNumbers = precomputeNumberOfValidNumbers(inputArgs, numberOfArgs);
 
     // TODO check every calloc/malloc/realloc function for null pointer
+    //  and catch std::bad_alloc after "new" allocation
     //  then throw an exception -> handle the exception in main
     int* numbers = (int *) calloc((size_t) numberOfValidNumbers, sizeof(int));
     int currentIndexOfValidNumber = 0;
@@ -58,8 +58,11 @@ int* StringToNumberConverter::createConvertedNumbers(char *const *inputArgs, int
         }
     }
 
-    numberOfArgs = numberOfValidNumbers;
-    return numbers;
+    std::unique_ptr<ConvertedNumbers> convertedNumbers (
+            new ConvertedNumbers(numbers, numberOfValidNumbers)
+    );
+
+    return convertedNumbers;
 }
 
 int StringToNumberConverter::precomputeNumberOfValidNumbers(char *const *inputArgs, const int numberOfArgs) {

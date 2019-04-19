@@ -1,6 +1,11 @@
+// TODO use #pragma once instead of ifndef
+
 #ifndef GCD_STRINGTONUMBERCONVERTER_H
 #define GCD_STRINGTONUMBERCONVERTER_H
 
+
+#include "../convertedNumbers/ConvertedNumbers.h"
+#include <memory>
 
 class StringToNumberConverter {
 private:
@@ -8,7 +13,7 @@ private:
 
     static void resetErrorNumber();
 
-    static bool isStringNumberValid(const char *numberAsString, const char *endptr, long number);
+    static bool isStringNumberValid(const char *numberAsString, const char *residualString, long number);
 
     static int precomputeNumberOfValidNumbers(char * const *inputArgs, int numberOfArgs);
 
@@ -16,10 +21,10 @@ private:
 
     static bool isInputNumberInvalid(long number);
 
-    static bool isInputNumberBlank(const char *numberAsString, const char *endptr);
+    static bool isInputNumberBlank(const char *numberAsString, const char *residualString);
 
 public:
-    static int* createConvertedNumbers(char *const *inputArgs, int &numberOfArgs);
+    static std::unique_ptr<ConvertedNumbers> createConvertedNumbers(char *const *inputArgs, int numberOfArgs);
 };
 
 
