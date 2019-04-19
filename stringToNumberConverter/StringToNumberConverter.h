@@ -1,8 +1,4 @@
-// TODO use #pragma once instead of ifndef
-
-#ifndef GCD_STRINGTONUMBERCONVERTER_H
-#define GCD_STRINGTONUMBERCONVERTER_H
-
+#pragma once
 
 #include "../convertedNumbers/ConvertedNumbers.h"
 #include <memory>
@@ -26,6 +22,3 @@ private:
 public:
     static std::unique_ptr<ConvertedNumbers> createConvertedNumbers(char *const *inputArgs, int numberOfArgs);
 };
-
-
-#endif //GCD_STRINGTONUMBERCONVERTER_H
