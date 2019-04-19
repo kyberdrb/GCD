@@ -42,10 +42,19 @@ bool StringToNumberConverter::isInputNumberBlank(const char *numberAsString, con
 std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumbers(char *const *inputArgs, int numberOfArgs) {
     int numberOfValidNumbers = precomputeNumberOfValidNumbers(inputArgs, numberOfArgs);
 
-    // TODO check every calloc/malloc/realloc function for null pointer
+    // TODO IN-PROGRESS check every calloc/malloc/realloc function for null pointer
     //  and catch std::bad_alloc after "new" allocation
     //  then throw an exception -> handle the exception in main
+
+    // TODO delegate the creation of "int* numbers" on ConvertedNumbers
+    //  and pass only the "size" parameter to the constructor - the
+    //  constructor will then allocate space for the array
     int* numbers = (int *) calloc((size_t) numberOfValidNumbers, sizeof(int));
+    if (numbers == nullptr) {
+        std::cout << "Couldn't allocate an array of coverted numbers" << std::endl;
+        throw std::bad_alloc();
+    }
+
     int currentIndexOfValidNumber = 0;
     for (int i = 0; i < numberOfArgs; i++) {
         const char* numberAsString = inputArgs[i];

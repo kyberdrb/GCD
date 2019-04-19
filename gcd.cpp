@@ -10,6 +10,8 @@
 #include <memory>
 #include <gtest/gtest.h>
 
+const int BAD_ALLOC = 1;
+
 int main(int argc, char **argv) {
     std::unique_ptr<TestRunner> testRunner(new TestRunner(argv[1]));
 
@@ -17,9 +19,16 @@ int main(int argc, char **argv) {
         return testRunner->getTestStatus();
     }
 
-    std::unique_ptr<ConvertedNumbers> numbers = StringToNumberConverter::createConvertedNumbers(argv, argc);
+    std::unique_ptr<ConvertedNumbers> numbers = nullptr;
+
+    try {
+        numbers = StringToNumberConverter::createConvertedNumbers(argv, argc);
+    } catch (std::bad_alloc &e) {
+        return BAD_ALLOC;
+    }
+
     int maxGcd = GcdFinder::find_max_gcd(numbers->getConvertedNumbers(), numbers->getSize());
     std::cout << maxGcd << std::endl;
 
-    return 0;
+    return EXIT_SUCCESS;
 }
