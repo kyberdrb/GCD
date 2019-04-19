@@ -1,6 +1,4 @@
-#ifndef GCD_INDEXPAIR_H
-#define GCD_INDEXPAIR_H
-
+#pragma once
 
 typedef struct index_pair {
     int indexOfFirstNumber;
@@ -8,6 +6,3 @@ typedef struct index_pair {
 } Index_Pair;
 
 Index_Pair * createUniquePairsOfIndexes(int numberOfElements);
-
-
-#endif //GCD_INDEXPAIR_H

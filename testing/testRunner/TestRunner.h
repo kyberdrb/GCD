@@ -1,6 +1,4 @@
-#ifndef GCD_TESTRUNNER_H
-#define GCD_TESTRUNNER_H
-
+#pragma once
 
 class TestRunner {
 private:
@@ -15,6 +13,3 @@ public:
     bool wereAllTestsRun();
     int getTestStatus();
 };
-
-
-#endif //GCD_TESTRUNNER_H

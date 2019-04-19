@@ -1,6 +1,4 @@
-#ifndef GCD_GCDFINDER_H
-#define GCD_GCDFINDER_H
-
+#pragma once
 
 #include "../numberPair/NumberPair.h"
 
@@ -10,6 +8,3 @@ public:
 
     static int find_max_gcd(int* numbers, int numberOfElements);
 };
-
-
-#endif //GCD_GCDFINDER_H

@@ -1,6 +1,4 @@
-#ifndef GCD_CONVERTEDNUMBERS_H
-#define GCD_CONVERTEDNUMBERS_H
-
+#pragma once
 
 class ConvertedNumbers {
 private:
@@ -16,6 +14,3 @@ public:
 
     ~ConvertedNumbers();
 };
-
-
-#endif //GCD_CONVERTEDNUMBERS_H

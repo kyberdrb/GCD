@@ -1,8 +1,3 @@
-#ifndef GCD_UTILS_H
-#define GCD_UTILS_H
-
+#pragma once
 
 int computeNumberOfAllIterations(int numberOfElements);
-
-
-#endif //GCD_UTILS_H
