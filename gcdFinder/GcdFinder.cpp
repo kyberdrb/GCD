@@ -37,36 +37,3 @@ int GcdFinder::find_maximum(int numberOfElements, const GCD_Number *gcd_numbers)
     }
     return maximum;
 }
-
-int GcdFinder::find_gcd(const NumberPair &pair) {
-    const int firstNumber = pair.firstNumber;
-    const int secondNumber = pair.secondNumber;
-
-    if (firstNumber == 0 || secondNumber == 0) {
-        return 0;
-    }
-
-    if (firstNumber == secondNumber) {
-        return firstNumber;
-    }
-
-    int greaterNum = firstNumber;
-    int lesserNum = secondNumber;
-
-
-    if (secondNumber > firstNumber) {
-        greaterNum = secondNumber;
-        lesserNum = firstNumber;
-    }
-
-    int remainder = 1;
-    int gcd;
-    while (remainder != 0) {
-        remainder = greaterNum % lesserNum;
-        greaterNum = lesserNum;
-        lesserNum = remainder;
-    }
-
-    gcd = greaterNum;
-    return gcd;
-}

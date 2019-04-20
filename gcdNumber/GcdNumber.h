@@ -7,3 +7,5 @@ typedef struct gcd_number {
 } GCD_Number;
 
 GCD_Number * createGcdNumbers(int numberOfElements, const NumberPair *numberPairs);
+
+int find_gcd(const NumberPair &pair);
