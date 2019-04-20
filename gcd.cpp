@@ -20,11 +20,15 @@ int main(int argc, char **argv) {
     }
 
     try {
-        std::unique_ptr<ConvertedNumbers> numbers = StringToNumberConverter::createConvertedNumbers(argv, argc);
-        int maxGcd = GcdFinder::find_max_gcd(numbers->getConvertedNumbers(), numbers->getSize());
+        std::unique_ptr<ConvertedNumbers> cleansedNumbers = StringToNumberConverter::createConvertedNumbers(argv, argc);
+
+        int maxGcd = GcdFinder::find_max_gcd(cleansedNumbers->getConvertedNumbers(), cleansedNumbers->getSize());
+
         std::cout << maxGcd << std::endl;
+
     } catch (std::bad_alloc &e) {
         std::cout << e.what() << std::endl;
+
         return EXIT_BAD_ALLOC;
     }
 

@@ -4,7 +4,7 @@
 #include "NumberPair.h"
 #include "../utils/Utils.h"
 
-NumberPair * createNumberPairs(int *numbers, int const &numberOfElements, Index_Pair *index_pairs) {
+NumberPair* createNumberPairs(int *numbers, int const &numberOfElements, Index_Pair *index_pairs) {
     const int numberOfAllIterations = computeNumberOfAllIterations(numberOfElements);
     int const & numberOfGcdPairs = numberOfAllIterations;
     auto* numberPairs = (NumberPair *) calloc((size_t) numberOfGcdPairs, sizeof(NumberPair));

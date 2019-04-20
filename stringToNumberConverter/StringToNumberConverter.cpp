@@ -69,14 +69,26 @@ std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumber
         }
     }
 
-    std::unique_ptr<ConvertedNumbers> convertedNumbers (
-            new ConvertedNumbers(numbers, numberOfValidNumbers)
-    );
+    std::unique_ptr<ConvertedNumbers> convertedNumbers = nullptr;
+
+    try {
+        convertedNumbers = std::unique_ptr<ConvertedNumbers>(
+                new ConvertedNumbers(numbers, numberOfValidNumbers)
+        );
+    } catch (const std::bad_alloc&) {
+        std::cout << "Couldn't allocate memory for convertedNumbers" << std::endl;
+        throw std::bad_alloc();
+    }
+
+    if (convertedNumbers == nullptr) {
+        std::cout << "Couldn't allocate memory for convertedNumbers" << std::endl;
+        throw std::bad_alloc();
+    }
 
     return convertedNumbers;
 }
 
-int StringToNumberConverter::precomputeNumberOfValidNumbers(char *const *inputArgs, const int numberOfArgs) {
+int StringToNumberConverter::precomputeNumberOfValidNumbers(char *const *inputArgs, int numberOfArgs) {
     int numberOfValidNumbers = 0;
 
     for (int i = 0; i < numberOfArgs; i++) {
