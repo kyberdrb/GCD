@@ -39,13 +39,22 @@ bool StringToNumberConverter::isInputNumberBlank(const char *numberAsString, con
     return numberAsString == residualString;
 }
 
-std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumbers(char *const *inputArgs, int numberOfArgs) {
+std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumbers(
+        char *const *inputArgs,
+        int numberOfArgs) {
+    // TODO instead of losing time with precomputing valid values
+    //  a more intelligent data structure like ArrayList would be handy
     int numberOfValidNumbers = precomputeNumberOfValidNumbers(inputArgs, numberOfArgs);
 
-    // TODO check every calloc/malloc/realloc function for null pointer
-    //  and catch std::bad_alloc after "new" allocation
-    //  then throw an exception -> handle the exception in main
+    // TODO delegate the creation of "int* numbers" on ConvertedNumbers
+    //  and pass only the "size" parameter to the constructor - the
+    //  constructor will then allocate space for the array
     int* numbers = (int *) calloc((size_t) numberOfValidNumbers, sizeof(int));
+    if (numbers == nullptr) {
+        std::cout << "Couldn't allocate memory for an array of coverted numbers" << std::endl;
+        throw std::bad_alloc();
+    }
+
     int currentIndexOfValidNumber = 0;
     for (int i = 0; i < numberOfArgs; i++) {
         const char* numberAsString = inputArgs[i];
@@ -58,14 +67,18 @@ std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumber
         }
     }
 
-    std::unique_ptr<ConvertedNumbers> convertedNumbers (
-            new ConvertedNumbers(numbers, numberOfValidNumbers)
-    );
+    std::unique_ptr<ConvertedNumbers> convertedNumbers = nullptr;
+    try {
+        convertedNumbers = createInstanceOfConvertedNumbers(numbers, numberOfValidNumbers);
+    } catch (const std::bad_alloc&) {
+        std::cout << "Couldn't allocate memory for convertedNumbers" << std::endl;
+        throw std::bad_alloc();
+    }
 
     return convertedNumbers;
 }
 
-int StringToNumberConverter::precomputeNumberOfValidNumbers(char *const *inputArgs, const int numberOfArgs) {
+int StringToNumberConverter::precomputeNumberOfValidNumbers(char *const *inputArgs, int numberOfArgs) {
     int numberOfValidNumbers = 0;
 
     for (int i = 0; i < numberOfArgs; i++) {
@@ -78,4 +91,26 @@ int StringToNumberConverter::precomputeNumberOfValidNumbers(char *const *inputAr
     }
 
     return numberOfValidNumbers;
+}
+
+std::unique_ptr<ConvertedNumbers>
+StringToNumberConverter::createInstanceOfConvertedNumbers(
+        int *numbers,
+        int numberOfValidNumbers)
+{
+    std::unique_ptr<ConvertedNumbers> convertedNumbers = nullptr;
+
+    try {
+        convertedNumbers = std::unique_ptr<ConvertedNumbers>(
+                new ConvertedNumbers(numbers, numberOfValidNumbers)
+        );
+    } catch (const std::bad_alloc&) {
+        throw std::bad_alloc();
+    }
+
+    if (convertedNumbers == nullptr) {
+        throw std::bad_alloc();
+    }
+
+    return convertedNumbers;
 }

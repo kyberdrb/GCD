@@ -19,6 +19,8 @@ private:
 
     static bool isInputNumberBlank(const char *numberAsString, const char *residualString);
 
+    static std::unique_ptr<ConvertedNumbers> createInstanceOfConvertedNumbers(int *numbers, int numberOfValidNumbers);
+
 public:
     static std::unique_ptr<ConvertedNumbers> createConvertedNumbers(char *const *inputArgs, int numberOfArgs);
 };
