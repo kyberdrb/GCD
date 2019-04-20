@@ -15,10 +15,11 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b552c1b6-872d-4b13-9c32-854027f9ab98" name="Default Changelist" comment="Use ConvertedNumbers in number conversion routine">
+    <list default="true" id="b552c1b6-872d-4b13-9c32-854027f9ab98" name="Default Changelist" comment="Check allocation in StringToNumberConverter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gcd.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gcd.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gcdNumber/GcdNumber.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gcdNumber/GcdNumber.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gcdFinder/GcdFinder.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/gcdFinder/GcdFinder.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/indexPair/IndexPair.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/indexPair/IndexPair.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/stringToNumberConverter/StringToNumberConverter.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/stringToNumberConverter/StringToNumberConverter.cpp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -52,7 +53,7 @@
         <entry file="file://$PROJECT_DIR$/gcd.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
+              <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -60,48 +61,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stringToNumberConverter/StringToNumberConverter.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="50" selection-end-column="31" />
+            <state relative-caret-position="382">
+              <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gcdNumber/GcdNumber.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="15" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/indexPair/IndexPair.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stringToNumberConverter/StringToNumberConverter.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/convertedNumbers/ConvertedNumbers.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -110,8 +73,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/convertedNumbers/ConvertedNumbers.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+            <state relative-caret-position="120">
+              <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gcdFinder/GcdFinder.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/indexPair/IndexPair.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/indexPair/IndexPair.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -141,6 +131,7 @@
       <find>ifndef</find>
       <find>throw</find>
       <find>(m|c)alloc</find>
+      <find>call</find>
     </findStrings>
     <replaceStrings>
       <replace>numberOfNumbers</replace>
@@ -157,6 +148,7 @@
       <dir>$PROJECT_DIR$/gcdFinder</dir>
       <dir>$PROJECT_DIR$/gcdNumber</dir>
       <dir>$PROJECT_DIR$/indexPair</dir>
+      <dir>$PROJECT_DIR$/stringToNumberConverter</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -189,14 +181,16 @@
         <option value="$PROJECT_DIR$/convertedNumbers/ConvertedNumbers.h" />
         <option value="$PROJECT_DIR$/gcdFinder/GcdFinder.h" />
         <option value="$PROJECT_DIR$/gcdNumber/GcdNumber.h" />
-        <option value="$PROJECT_DIR$/indexPair/IndexPair.h" />
         <option value="$PROJECT_DIR$/numberPair/NumberPair.h" />
         <option value="$PROJECT_DIR$/stringToNumberConverter/StringToNumberConverter.h" />
         <option value="$PROJECT_DIR$/testing/testRunner/TestRunner.h" />
         <option value="$PROJECT_DIR$/utils/Utils.h" />
-        <option value="$PROJECT_DIR$/stringToNumberConverter/StringToNumberConverter.cpp" />
-        <option value="$PROJECT_DIR$/gcd.cpp" />
         <option value="$PROJECT_DIR$/gcdNumber/GcdNumber.cpp" />
+        <option value="$PROJECT_DIR$/indexPair/IndexPair.h" />
+        <option value="$PROJECT_DIR$/gcdFinder/GcdFinder.cpp" />
+        <option value="$PROJECT_DIR$/gcd.cpp" />
+        <option value="$PROJECT_DIR$/stringToNumberConverter/StringToNumberConverter.cpp" />
+        <option value="$PROJECT_DIR$/indexPair/IndexPair.cpp" />
       </list>
     </option>
   </component>
@@ -463,11 +457,25 @@
       <option name="project" value="LOCAL" />
       <updated>1555692792408</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Check allocation in StringToNumberConverter">
+      <created>1555698508389</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1555698508389</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Check allocation in StringToNumberConverter">
+      <created>1555698899355</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1555698899355</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44677000" />
+    <option name="totallyTimeSpent" value="47694000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -488,11 +496,11 @@
       <window_info anchor="bottom" id="CMake" order="0" sideWeight="0.49924126" weight="0.32847896" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49924126" weight="0.32847896" />
       <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5015175" side_tool="true" weight="0.32847896" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="3" visible="true" weight="0.30420712" />
+      <window_info anchor="bottom" id="Version Control" order="3" weight="0.30420712" />
       <window_info anchor="bottom" id="Messages" order="4" sideWeight="0.49848256" weight="0.32847896" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.32847896" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.32847896" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.32847896" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.39967638" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
@@ -561,7 +569,8 @@
     <MESSAGE value="Add test cases for GcdFinder" />
     <MESSAGE value="Use ConvertedNumbers in number conversion routine" />
     <MESSAGE value="Replace &quot;ifndef&quot; with &quot;pragma once&quot; in headers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Replace &quot;ifndef&quot; with &quot;pragma once&quot; in headers" />
+    <MESSAGE value="Check allocation in StringToNumberConverter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check allocation in StringToNumberConverter" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
@@ -612,13 +621,6 @@
     <entry file="file://$PROJECT_DIR$/testing/tests/Test_GCD_10_20_30_40.cpp" />
     <entry file="file://$PROJECT_DIR$/testing/tests/Test_GCD_125_15_25.cpp" />
     <entry file="file://$PROJECT_DIR$/testing/tests/Test_GCD_7_5_12.cpp" />
-    <entry file="file://$PROJECT_DIR$/gcdFinder/GcdFinder.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
@@ -653,22 +655,6 @@
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/convertedNumbers/ConvertedNumbers.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/convertedNumbers/ConvertedNumbers.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gcdFinder/GcdFinder.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -680,13 +666,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
           <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/indexPair/IndexPair.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -730,26 +709,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/indexPair/IndexPair.cpp">
+    <entry file="file://$PROJECT_DIR$/convertedNumbers/ConvertedNumbers.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gcd.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="24" column="51" lean-forward="true" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stringToNumberConverter/StringToNumberConverter.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="50" selection-end-column="31" />
+        <state relative-caret-position="45">
+          <caret line="3" column="18" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -757,7 +722,52 @@
     <entry file="file://$PROJECT_DIR$/gcdNumber/GcdNumber.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="15" selection-end-column="5" />
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/indexPair/IndexPair.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="20" lean-forward="true" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stringToNumberConverter/StringToNumberConverter.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="382">
+          <caret line="55" column="51" selection-start-line="55" selection-start-column="51" selection-end-line="55" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/convertedNumbers/ConvertedNumbers.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcd.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="24" column="41" lean-forward="true" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/indexPair/IndexPair.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcdFinder/GcdFinder.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>

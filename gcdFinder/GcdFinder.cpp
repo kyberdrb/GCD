@@ -7,7 +7,13 @@
 
 // TODO try to make the for loops in methods parallel
 int GcdFinder::find_max_gcd(int *numbers, int numberOfElements) {
-    Index_Pair *index_pairs = createUniquePairsOfIndexes(numberOfElements);
+    Index_Pair *index_pairs = nullptr;
+    try {
+        index_pairs= createUniquePairsOfIndexes(numberOfElements);
+    } catch (std::bad_alloc &e) {
+        std::cout << "Couldn't allocate an array of index_pairs" << std::endl;
+        throw std::bad_alloc();
+    }
 
     NumberPair *numberPairs = createNumberPairs(numbers, numberOfElements, index_pairs);
     free(index_pairs);

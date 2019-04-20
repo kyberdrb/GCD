@@ -39,7 +39,9 @@ bool StringToNumberConverter::isInputNumberBlank(const char *numberAsString, con
     return numberAsString == residualString;
 }
 
-std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumbers(char *const *inputArgs, int numberOfArgs) {
+std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumbers(
+        char *const *inputArgs,
+        int numberOfArgs) {
     int numberOfValidNumbers = precomputeNumberOfValidNumbers(inputArgs, numberOfArgs);
 
     // TODO IN-PROGRESS check every calloc/malloc/realloc function for null pointer
@@ -51,7 +53,7 @@ std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumber
     //  constructor will then allocate space for the array
     int* numbers = (int *) calloc((size_t) numberOfValidNumbers, sizeof(int));
     if (numbers == nullptr) {
-        std::cout << "Couldn't allocate an array of coverted numbers" << std::endl;
+        std::cout << "Couldn't allocate memory for an array of coverted numbers" << std::endl;
         throw std::bad_alloc();
     }
 
