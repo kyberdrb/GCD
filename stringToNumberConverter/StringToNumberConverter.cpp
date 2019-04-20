@@ -42,11 +42,9 @@ bool StringToNumberConverter::isInputNumberBlank(const char *numberAsString, con
 std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumbers(
         char *const *inputArgs,
         int numberOfArgs) {
+    // TODO instead of losing time with precomputing valid values
+    //  a more intelligent data structure like ArrayList would be handy
     int numberOfValidNumbers = precomputeNumberOfValidNumbers(inputArgs, numberOfArgs);
-
-    // TODO IN-PROGRESS check every calloc/malloc/realloc function for null pointer
-    //  and catch std::bad_alloc after "new" allocation
-    //  then throw an exception -> handle the exception in main
 
     // TODO delegate the creation of "int* numbers" on ConvertedNumbers
     //  and pass only the "size" parameter to the constructor - the
@@ -70,17 +68,9 @@ std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumber
     }
 
     std::unique_ptr<ConvertedNumbers> convertedNumbers = nullptr;
-
     try {
-        convertedNumbers = std::unique_ptr<ConvertedNumbers>(
-                new ConvertedNumbers(numbers, numberOfValidNumbers)
-        );
+        convertedNumbers = createInstanceOfConvertedNumbers(numbers, numberOfValidNumbers);
     } catch (const std::bad_alloc&) {
-        std::cout << "Couldn't allocate memory for convertedNumbers" << std::endl;
-        throw std::bad_alloc();
-    }
-
-    if (convertedNumbers == nullptr) {
         std::cout << "Couldn't allocate memory for convertedNumbers" << std::endl;
         throw std::bad_alloc();
     }
@@ -101,4 +91,26 @@ int StringToNumberConverter::precomputeNumberOfValidNumbers(char *const *inputAr
     }
 
     return numberOfValidNumbers;
+}
+
+std::unique_ptr<ConvertedNumbers>
+StringToNumberConverter::createInstanceOfConvertedNumbers(
+        int *numbers,
+        int numberOfValidNumbers)
+{
+    std::unique_ptr<ConvertedNumbers> convertedNumbers = nullptr;
+
+    try {
+        convertedNumbers = std::unique_ptr<ConvertedNumbers>(
+                new ConvertedNumbers(numbers, numberOfValidNumbers)
+        );
+    } catch (const std::bad_alloc&) {
+        throw std::bad_alloc();
+    }
+
+    if (convertedNumbers == nullptr) {
+        throw std::bad_alloc();
+    }
+
+    return convertedNumbers;
 }
