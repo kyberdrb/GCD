@@ -7,11 +7,13 @@ typedef struct gcd_number {
 } GCD_Number;
 
 typedef struct thread_info {    /* Used as argument to thread_start() */
-    int thread_num;
+    int index;
+    const NumberPair *numberPairs;
+    GCD_Number *gcdNumbers;
 } ThreadInfo;
 
 GCD_Number* createGcdNumbers(int numberOfElements, const NumberPair *numberPairs);
 
-void* call_from_thread(void* additionalDataForThread);
+void* addGCD(void *additionalDataForThread);
 
-int find_gcd(const NumberPair &pair);
+int computeGCD(const NumberPair &pair);

@@ -44,7 +44,8 @@ std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumber
         int numberOfArgs)
 {
     // TODO instead of losing time with precomputing valid values
-    //  a more intelligent data structure like ArrayList would be handy
+    //  a more intelligent data structure like ArrayList/vector would be
+    //  more appropriate
     int numberOfValidNumbers = precomputeNumberOfValidNumbers(inputArgs, numberOfArgs);
 
     int* validNumbers = (int *) calloc((size_t) numberOfValidNumbers, sizeof(int));
@@ -58,6 +59,9 @@ std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumber
         const char* numberAsString = inputArgs[i];
 
         try {
+            // TODO Values of type 'long' may not fit into the receiver type 'int';
+            //  change everything in the program that works with array of numbers
+            //  to array of longs
             validNumbers[currentIndexOfValidNumber] = StringToNumberConverter::convert(numberAsString);
             currentIndexOfValidNumber++;
         } catch (const std::invalid_argument& e) {

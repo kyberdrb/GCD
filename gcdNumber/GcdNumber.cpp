@@ -9,25 +9,24 @@
 GCD_Number* createGcdNumbers(const int numberOfElements, const NumberPair *numberPairs) {
     int numberOfAllIterations = computeNumberOfAllIterations(numberOfElements);
     const int &numberOfAllGcdNumbers = numberOfAllIterations;
-    auto* gcd_numbers = (GCD_Number *) calloc((size_t) numberOfAllGcdNumbers, sizeof(GCD_Number));
-    if (gcd_numbers == nullptr) {
-        std::cout << "Couldn't allocate memory for gcd_numbers" << std::endl;
+    auto* gcdNumbers = (GCD_Number *) calloc((size_t) numberOfAllGcdNumbers, sizeof(GCD_Number));
+    if (gcdNumbers == nullptr) {
+        std::cout << "Couldn't allocate memory for gcdNumbers" << std::endl;
         throw std::bad_alloc();
     }
 
     const int &num_threads = numberOfAllIterations;
     pthread_t t[num_threads];
 
-    ThreadInfo** threadInfoStructs = (ThreadInfo**) calloc(num_threads, sizeof(ThreadInfo*));
+    auto** threadInfoStructs = (ThreadInfo**) calloc((size_t) num_threads, sizeof(ThreadInfo*));
 
     for (int i = 0; i < numberOfAllIterations; ++i) {
         threadInfoStructs[i] = (ThreadInfo*) calloc(1, sizeof(ThreadInfo));
-        threadInfoStructs[i]->thread_num = i;
-        pthread_create(&t[i], nullptr, call_from_thread, threadInfoStructs[i]);
+        threadInfoStructs[i]->index = i;
+        threadInfoStructs[i]->numberPairs = numberPairs;
+        threadInfoStructs[i]->gcdNumbers = gcdNumbers;
 
-        GCD_Number gcd_num;
-        gcd_num.value = find_gcd(numberPairs[i]);
-        memcpy(&gcd_numbers[i], &gcd_num, sizeof(GCD_Number));
+        pthread_create(&t[i], nullptr, addGCD, threadInfoStructs[i]);
     }
 
     for (int i = 0; i < num_threads; ++i) {
@@ -36,15 +35,21 @@ GCD_Number* createGcdNumbers(const int numberOfElements, const NumberPair *numbe
     }
     free(threadInfoStructs);
 
-    return gcd_numbers;
+    return gcdNumbers;
 }
 
-void* call_from_thread(void* additionalDataForThread) {
-    ThreadInfo* threadInfo = (ThreadInfo*) additionalDataForThread;
-    std::cout << "Launched by thread " << threadInfo->thread_num << std::endl;
+void* addGCD(void *additionalDataForThread) {
+    auto* threadInfo = (ThreadInfo*) additionalDataForThread;
+    GCD_Number gcd_num;
+    int index = threadInfo->index;
+
+    gcd_num.value = computeGCD(threadInfo->numberPairs[index]);
+    memcpy(&threadInfo->gcdNumbers[index], &gcd_num, sizeof(GCD_Number));
+
+    return nullptr;
 }
 
-int find_gcd(const NumberPair &pair) {
+int computeGCD(const NumberPair &pair) {
     const int firstNumber = pair.firstNumber;
     const int secondNumber = pair.secondNumber;
 

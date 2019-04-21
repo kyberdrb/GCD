@@ -27,9 +27,12 @@ int main(int argc, char **argv) {
     }
 
     try {
-        std::unique_ptr<ConvertedNumbers> cleansedNumbers = StringToNumberConverter::createConvertedNumbers(argv, argc);
+        std::unique_ptr<ConvertedNumbers> cleansedNumbers =
+                StringToNumberConverter::createConvertedNumbers(argv, argc);
 
-        int maxGcd = GcdFinder::find_max_gcd(cleansedNumbers->getConvertedNumbers(), cleansedNumbers->getSize());
+        int maxGcd = GcdFinder::find_max_gcd(
+                cleansedNumbers->getConvertedNumbers(),
+                cleansedNumbers->getSize() );
 
         std::cout << maxGcd << std::endl;
 

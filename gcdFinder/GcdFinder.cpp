@@ -5,7 +5,7 @@
 #include "../gcdNumber/GcdNumber.h"
 #include "../utils/Utils.h"
 
-// TODO try to make the for loops in methods parallel
+// TODO try to make every "for" loop in the program parallel
 int GcdFinder::find_max_gcd(int *numbers, int numberOfElements) {
     int maxGcd = 0;
     try {
