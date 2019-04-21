@@ -21,13 +21,13 @@ namespace {
     };
 
     TEST_F( Test_StringToNumberConverter,
-            convert_1) {
+            compareNumberOfArguments) {
         int numberOfValidArguments = 3;
         EXPECT_EQ(numberOfValidArguments, convertedNumbers->getSize());
     }
 
     TEST_F( Test_StringToNumberConverter,
-            compare_valid_numbers) {
+            compareValidNumbers) {
         EXPECT_EQ(1, convertedNumbers->getConvertedNumbers()[0]);
         EXPECT_EQ(-2, convertedNumbers->getConvertedNumbers()[1]);
         EXPECT_EQ(300, convertedNumbers->getConvertedNumbers()[2]);

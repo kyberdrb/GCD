@@ -41,17 +41,16 @@ bool StringToNumberConverter::isInputNumberBlank(const char *numberAsString, con
 
 std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumbers(
         char *const *inputArgs,
-        int numberOfArgs) {
+        int numberOfArgs)
+{
     // TODO instead of losing time with precomputing valid values
-    //  a more intelligent data structure like ArrayList would be handy
+    //  a more intelligent data structure like ArrayList/vector would be
+    //  more appropriate
     int numberOfValidNumbers = precomputeNumberOfValidNumbers(inputArgs, numberOfArgs);
 
-    // TODO delegate the creation of "int* numbers" on ConvertedNumbers
-    //  and pass only the "size" parameter to the constructor - the
-    //  constructor will then allocate space for the array
-    int* numbers = (int *) calloc((size_t) numberOfValidNumbers, sizeof(int));
-    if (numbers == nullptr) {
-        std::cout << "Couldn't allocate memory for an array of coverted numbers" << std::endl;
+    int* validNumbers = (int *) calloc((size_t) numberOfValidNumbers, sizeof(int));
+    if (validNumbers == nullptr) {
+        std::cout << "Couldn't allocate memory for an array of coverted validNumbers" << std::endl;
         throw std::bad_alloc();
     }
 
@@ -60,7 +59,10 @@ std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumber
         const char* numberAsString = inputArgs[i];
 
         try {
-            numbers[currentIndexOfValidNumber] = StringToNumberConverter::convert(numberAsString);
+            // TODO Values of type 'long' may not fit into the receiver type 'int';
+            //  change everything in the program that works with array of numbers
+            //  to array of longs
+            validNumbers[currentIndexOfValidNumber] = StringToNumberConverter::convert(numberAsString);
             currentIndexOfValidNumber++;
         } catch (const std::invalid_argument& e) {
             continue;
@@ -69,7 +71,7 @@ std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumber
 
     std::unique_ptr<ConvertedNumbers> convertedNumbers = nullptr;
     try {
-        convertedNumbers = createInstanceOfConvertedNumbers(numbers, numberOfValidNumbers);
+        convertedNumbers = createInstanceOfConvertedNumbers(validNumbers, numberOfValidNumbers);
     } catch (const std::bad_alloc&) {
         std::cout << "Couldn't allocate memory for convertedNumbers" << std::endl;
         throw std::bad_alloc();
