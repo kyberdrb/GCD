@@ -3,6 +3,7 @@
 #include <iostream>
 #include "NumberPair.h"
 #include "../utils/Utils.h"
+#include <thread>
 
 NumberPair* createNumberPairs(int *numbers, int const &numberOfElements, Index_Pair *index_pairs) {
     const int numberOfAllIterations = computeNumberOfAllIterations(numberOfElements);
@@ -14,7 +15,8 @@ NumberPair* createNumberPairs(int *numbers, int const &numberOfElements, Index_P
     }
 
     const int &numberOfThreads = numberOfAllIterations;
-    pthread_t t[numberOfThreads];
+
+    std::thread threads[numberOfThreads];
     auto** threadInfoStructs =
             (NumberPairThreadInfo**) calloc((size_t) numberOfThreads, sizeof(NumberPairThreadInfo*));
 
@@ -25,11 +27,11 @@ NumberPair* createNumberPairs(int *numbers, int const &numberOfElements, Index_P
         threadInfoStructs[i]->index_pairs = index_pairs;
         threadInfoStructs[i]->numbers = numbers;
 
-        pthread_create(&t[i], nullptr, addNumberPair, threadInfoStructs[i]);
+        threads[i] = std::thread(addNumberPair, threadInfoStructs[i]);
     }
 
     for (int i = 0; i < numberOfThreads; ++i) {
-        pthread_join(t[i], nullptr);
+        threads[i].join();
         free(threadInfoStructs[i]);
     }
     free(threadInfoStructs);
@@ -37,7 +39,7 @@ NumberPair* createNumberPairs(int *numbers, int const &numberOfElements, Index_P
     return numberPairs;
 }
 
-void* addNumberPair(void *additionalDataForThread) {
+void* addNumberPair(NumberPairThreadInfo* additionalDataForThread) {
     auto* threadInfo = (NumberPairThreadInfo*) additionalDataForThread;
     NumberPair numberPair;
     int index = threadInfo->index;

@@ -16,7 +16,7 @@ GCD_Number* createGcdNumbers(const int numberOfElements, const NumberPair *numbe
     }
 
     const int &numberOfThreads = numberOfAllIterations;
-    pthread_t t[numberOfThreads];
+    pthread_t threads[numberOfThreads];
     auto** threadInfoStructs =
             (GcdNumberThreadInfo**) calloc((size_t) numberOfThreads, sizeof(GcdNumberThreadInfo*));
 
@@ -26,11 +26,11 @@ GCD_Number* createGcdNumbers(const int numberOfElements, const NumberPair *numbe
         threadInfoStructs[i]->numberPairs = numberPairs;
         threadInfoStructs[i]->gcdNumbers = gcdNumbers;
 
-        pthread_create(&t[i], nullptr, addGCD, threadInfoStructs[i]);
+        pthread_create(&threads[i], nullptr, addGCD, threadInfoStructs[i]);
     }
 
     for (int i = 0; i < numberOfThreads; ++i) {
-        pthread_join(t[i], nullptr);
+        pthread_join(threads[i], nullptr);
         free(threadInfoStructs[i]);
     }
     free(threadInfoStructs);

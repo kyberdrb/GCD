@@ -17,6 +17,6 @@ typedef struct number_pair_thread_info {
 
 NumberPair* createNumberPairs(int *numbers, int const &numberOfElements, Index_Pair *index_pairs);
 
-void* addNumberPair(void *additionalDataForThread);
+void* addNumberPair(NumberPairThreadInfo* additionalDataForThread);
 
 int makeNumberPositive(int negativeNumber);
