@@ -7,7 +7,16 @@ typedef struct numberPair {
     int secondNumber;
 } NumberPair;
 
+typedef struct number_pair_thread_info {
+    int index;
+    Index_Pair* index_pairs;
+    NumberPair* numberPairs;
+    int* numbers;
+} NumberPairThreadInfo;
 
-NumberPair * createNumberPairs(int *numbers, int const &numberOfElements, Index_Pair *index_pairs);
+
+NumberPair* createNumberPairs(int *numbers, int const &numberOfElements, Index_Pair *index_pairs);
+
+void* addNumberPair(void *additionalDataForThread);
 
 int makeNumberPositive(int negativeNumber);
