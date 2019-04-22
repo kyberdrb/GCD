@@ -29,6 +29,8 @@ Index_Pair * createUniquePairsOfIndexes(const int numberOfElements) {
 
     int i = 0;
     int j = 0;
+
+    // TODO parallelize this "for" loop
     for (int iteration = 0; iteration < numberOfAllIterations;) {
         if (i == j) {
             j++;

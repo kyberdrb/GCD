@@ -30,6 +30,8 @@ int GcdFinder::find_max_gcd(int *numbers, int numberOfElements) {
 int GcdFinder::find_maximum(int numberOfElements, const GCD_Number *gcd_numbers) {
     int maximum = 0;
     const int numberOfAllIterations = computeNumberOfAllIterations(numberOfElements);
+
+    // TODO parallelize this "for" loop
     for (int i = 0; i < numberOfAllIterations; ++i) {
         if (gcd_numbers[i].value > maximum) {
             maximum = gcd_numbers[i].value;

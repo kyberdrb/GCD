@@ -15,22 +15,22 @@ GCD_Number* createGcdNumbers(const int numberOfElements, const NumberPair *numbe
         throw std::bad_alloc();
     }
 
-    const int &num_threads = numberOfAllIterations;
-    pthread_t t[num_threads];
+    const int &numberOfThreads = numberOfAllIterations;
+    pthread_t threads[numberOfThreads];
+    auto** threadInfoStructs =
+            (GcdNumberThreadInfo**) calloc((size_t) numberOfThreads, sizeof(GcdNumberThreadInfo*));
 
-    auto** threadInfoStructs = (ThreadInfo**) calloc((size_t) num_threads, sizeof(ThreadInfo*));
-
-    for (int i = 0; i < numberOfAllIterations; ++i) {
-        threadInfoStructs[i] = (ThreadInfo*) calloc(1, sizeof(ThreadInfo));
+    for (int i = 0; i < numberOfThreads; ++i) {
+        threadInfoStructs[i] = (GcdNumberThreadInfo*) calloc(1, sizeof(GcdNumberThreadInfo));
         threadInfoStructs[i]->index = i;
         threadInfoStructs[i]->numberPairs = numberPairs;
         threadInfoStructs[i]->gcdNumbers = gcdNumbers;
 
-        pthread_create(&t[i], nullptr, addGCD, threadInfoStructs[i]);
+        pthread_create(&threads[i], nullptr, addGCD, threadInfoStructs[i]);
     }
 
-    for (int i = 0; i < num_threads; ++i) {
-        pthread_join(t[i], nullptr);
+    for (int i = 0; i < numberOfThreads; ++i) {
+        pthread_join(threads[i], nullptr);
         free(threadInfoStructs[i]);
     }
     free(threadInfoStructs);
@@ -39,7 +39,7 @@ GCD_Number* createGcdNumbers(const int numberOfElements, const NumberPair *numbe
 }
 
 void* addGCD(void *additionalDataForThread) {
-    auto* threadInfo = (ThreadInfo*) additionalDataForThread;
+    auto* threadInfo = (GcdNumberThreadInfo*) additionalDataForThread;
     GCD_Number gcd_num;
     int index = threadInfo->index;
 

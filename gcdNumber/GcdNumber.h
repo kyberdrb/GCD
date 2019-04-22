@@ -6,11 +6,11 @@ typedef struct gcd_number {
     int value;
 } GCD_Number;
 
-typedef struct thread_info {    /* Used as argument to thread_start() */
+typedef struct gcd_number_thread_info {
     int index;
     const NumberPair *numberPairs;
     GCD_Number *gcdNumbers;
-} ThreadInfo;
+} GcdNumberThreadInfo;
 
 GCD_Number* createGcdNumbers(int numberOfElements, const NumberPair *numberPairs);
 

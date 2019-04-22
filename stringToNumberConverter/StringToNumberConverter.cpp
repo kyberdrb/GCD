@@ -55,6 +55,9 @@ std::unique_ptr<ConvertedNumbers> StringToNumberConverter::createConvertedNumber
     }
 
     int currentIndexOfValidNumber = 0;
+    // TODO parallelize this "for" loop
+    //  but after changing "validNumbers" from "int*"
+    //  to std::vector
     for (int i = 0; i < numberOfArgs; i++) {
         const char* numberAsString = inputArgs[i];
 
